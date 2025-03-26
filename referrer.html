@@ -2,6 +2,32 @@
 <head>
 </head>
 <body>
-111222
+
+  <button id="fetchData">获取数据</button>
+  <script>
+
+    document.getElementById('fetchData').addEventListener('click', function() {
+      // 创建 XMLHttpRequest 对象
+      var xhr = new XMLHttpRequest();
+      // 配置请求：方法为 GET，请求的 URL 为当前域下的 data.json
+      xhr.open('GET', 'db.json', true);
+      // 设置回调函数，处理响应
+      xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) { // 请求完成
+          if (xhr.status === 200) { // 请求成功
+            // 解析 JSON 数据
+            var data = JSON.parse(xhr.responseText);
+            // 更新页面内容
+            document.getElementById('result').innerHTML = '用户名：' + data.username + '<br>年龄：' + data.age;
+          } else {
+            // 处理错误
+            document.getElementById('result').innerHTML = '请求失败，状态码：' + xhr.status;
+          }
+        }
+      };
+      // 发送请求
+      xhr.send();
+    });
+  </script>
 </body>
 </html>
