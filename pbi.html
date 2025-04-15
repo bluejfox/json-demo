@@ -1,9 +1,10 @@
 <html>
 <head>
   <meta name="viewport" content="initial-scale=1.0,maximum-scale=5.0"/>
-  <title>pbi v5-resize</title>
+  <title>pbi v6-resize</title>
   <script>
       window.addEventListener('resize', function () {
+        alert('resize');
           const iframe = document.getElementById('powerbi-iframe');
           if (iframe) {
               iframe.style.width = '100%';
