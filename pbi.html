@@ -3,9 +3,25 @@
   <meta name="viewport" content="initial-scale=1.0,maximum-scale=5.0"/>
   <title>pbi v2</title>
   <script>
+      window.addEventListener('resize', function () {
+          const iframe = document.getElementById('powerbi-iframe');
+          if (iframe) {
+              iframe.style.width = '100%';
+              iframe.style.height = window.innerHeight + 'px';
+          }
+      });
   </script>
+  <style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+    }
+  </style>
 </head>
 <body>
-  <iframe src="https://playground.powerbi.com/sampleReportEmbed" style="width: 100%; height: 100%" sandbox="allow-scripts allow-same-origin"></iframe>
+  <iframe id="powerbi-iframe" src="https://playground.powerbi.com/sampleReportEmbed" style="width: 100%; height: 100%" sandbox="allow-scripts allow-same-origin"></iframe>
 </body>
 </html>
