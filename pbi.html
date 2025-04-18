@@ -1,16 +1,25 @@
 <html>
 <head>
   <meta name="viewport" content="initial-scale=1.0,maximum-scale=5.0"/>
-  <title>pbi v6-resize</title>
+  <title>pbi v7-touchstart</title>
   <script>
-      window.addEventListener('resize', function () {
-        alert('resize');
-          const iframe = document.getElementById('powerbi-iframe');
-          if (iframe) {
-              iframe.style.width = '100%';
-              iframe.style.height = window.innerHeight + 'px';
-          }
-      });
+      // window.addEventListener('resize', function () {
+      //   alert('resize');
+      //     const iframe = document.getElementById('powerbi-iframe');
+      //     if (iframe) {
+      //         iframe.style.width = '100%';
+      //         iframe.style.height = window.innerHeight + 'px';
+      //     }
+      // });
+    document.addEventListener('touchstart', (e) => {
+      alert('touchstart');
+      document.getElementById('powerbi-iframe').style.display = 'none';
+    });
+    
+    document.addEventListener('touchend', (e) => {
+      alert('touchend');
+      document.getElementById('powerbi-iframe').style.display = '';
+    });
   </script>
   <style>
     html, body {
